@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 222 47% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262 83% 58%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222 47% 11.2%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 262 83% 58%;
+
+    /* Custom high-end tokens */
+    --success: 142 76% 36%;
+    --success-foreground: 355 100% 97%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+    --info: 221 83% 53%;
+    --info-foreground: 210 40% 98%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(282, 83%, 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(221, 83%, 53%));
+    --gradient-mood-positive: linear-gradient(135deg, hsl(142, 76%, 36%), hsl(162, 76%, 46%));
+    --gradient-mood-negative: linear-gradient(135deg, hsl(0, 84%, 60%), hsl(340, 84%, 60%));
+    --gradient-calm: linear-gradient(135deg, hsl(200, 95%, 60%), hsl(221, 83%, 53%));
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+
+    --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 4px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-premium-hover: 0 20px 40px -15px rgba(0, 0, 0, 0.12), 0 8px 20px -10px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222 47% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 47% 11.2%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 263 70% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 11.2%;
+    --input: 222 47% 11.2%;
+    --ring: 263 70% 50%;
+
+    --shadow-premium: 0 10px 40px -15px rgba(0, 0, 0, 0.5), 0 5px 15px -10px rgba(0, 0, 0, 0.3);
+    --shadow-premium-hover: 0 20px 50px -15px rgba(0, 0, 0, 0.6), 0 10px 25px -10px rgba(0, 0, 0, 0.4);
+    
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-primary/20 selection:text-primary;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .card-shadow {
+    box-shadow: var(--shadow-premium);
+    @apply transition-all duration-300;
+  }
+  .card-shadow:hover {
+    box-shadow: var(--shadow-premium-hover);
+    @apply -translate-y-1;
+  }
+  .glass-effect {
+    @apply backdrop-blur-md border border-white/20 bg-white/10;
+  }
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  .gradient-mood-positive {
+    background: var(--gradient-mood-positive);
+  }
+  .gradient-mood-negative {
+    background: var(--gradient-mood-negative);
+  }
+  .gradient-calm {
+    background: var(--gradient-calm);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}

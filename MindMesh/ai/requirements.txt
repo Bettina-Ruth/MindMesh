@@ -1,0 +1,5 @@
+vaderSentiment
+textblob
+pandas
+numpy
+pytest
